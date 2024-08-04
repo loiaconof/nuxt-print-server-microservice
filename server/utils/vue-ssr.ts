@@ -5,7 +5,7 @@ import fs from 'node:fs'
 export async function componentToHtml(path: string, data: Record<string, any>) {
   const componentSFCCode = fs.readFileSync(`./pages/${path}`, 'utf-8')
   const app = createSSRApp({
-    data: () => ({ title: 'I\'m the title', message: 'message!' }),
+    data: () => (data),
     template: componentSFCCode
   })
 
