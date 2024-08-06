@@ -1,14 +1,15 @@
 <script setup>
-defineProps({
-  title: String,
-  message: String,
-})
+const columns = ['student', 'grade']
+const rows = [
+  { student: 'Alice', grade: 'A' },
+  { student: 'Bob', grade: 'B' },
+  { student: 'Charlie', grade: 'C' },
+]
 </script>
 
 <template>
   <div>
-    <h1>{{ title }}</h1>
-    <p>{{ message }}</p>
+    <pdf-table :columns="columns" :rows="rows" />
   </div>
 </template>
 
