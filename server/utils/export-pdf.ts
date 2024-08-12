@@ -1,6 +1,6 @@
 import puppeteer from 'puppeteer';
 
-export async function exportPdf(filename: string, path: string) {
+export async function exportPdf(event: H3Event<EventHandlerRequest>, filename: string, path: string) {
   const html = await $fetch<string>(path);
 
   const browser = await puppeteer.launch({
@@ -19,6 +19,10 @@ export async function exportPdf(filename: string, path: string) {
   });
 
   await browser.close();
+
+  event.node.res.setHeader('Content-Type', 'application/pdf');
+  event.node.res.setHeader('Content-Disposition', `attachment; filename="${filename}"`);
+  event.node.res.setHeader('Content-Length', pdfBuffer.length);
 
   return pdfBuffer;
 }
