@@ -1,15 +1,13 @@
-<template>
-  <div>
-    <button @click="print">Print</button>
-  </div>
-</template>
-
 <script lang="ts" setup>
-function print() {
-  
+async function print() {
+  downloadPdf('/api/pdf/example')
 }
 </script>
 
-<style>
-
-</style>
+<template>
+  <div>
+    <button @click="print">
+      Print
+    </button>
+  </div>
+</template>
