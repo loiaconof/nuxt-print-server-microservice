@@ -4,6 +4,7 @@ export const usePdf = () => {
 
   function download(url: string) {
     loading.value = true
+    error.value = undefined
     try {
       $fetch.raw<FetchResponse<Blob>>(url)
         .then(res => downloadBlob(res._data, getResponseFilename(res)))
