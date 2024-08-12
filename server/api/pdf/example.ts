@@ -1,5 +1,5 @@
 import { exportPdf } from "~/server/utils/export-pdf";
 
 export default defineEventHandler(async (event) => {
-  return await exportPdf('example.pdf', '/example')
+  return await exportPdf('example.pdf', '/pdf/example')
 });
