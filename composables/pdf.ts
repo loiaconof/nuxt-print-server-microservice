@@ -1,4 +1,4 @@
-export const usePdf = () => {
+export default function usePdf() {
   const loading = ref(false)
   const error = ref(undefined)
 
@@ -9,9 +9,9 @@ export const usePdf = () => {
       $fetch.raw<FetchResponse<Blob>>(url)
         .then(res => downloadBlob(res._data, getResponseFilename(res)))
         .catch(err => error.value = err)
+        .finally(() => loading.value = false)
     } catch (err: any) {
       error.value = err
-    } finally {
       loading.value = false
     }
   }
