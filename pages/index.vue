@@ -1,5 +1,5 @@
 <script lang="ts" setup>
-import { usePdf } from '~/composables/pdf'
+import usePdf from '~/composables/pdf'
 
 const { loading, error, download } = usePdf()
 </script>
